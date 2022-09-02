@@ -13,6 +13,7 @@ import reactor.core.publisher.Mono;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -26,10 +27,19 @@ public class SakuraCardServiceConnected implements SakuraService {
 
 
     @Override
-    public SakuraCard findById(Long id) {
-
+    public SakuraCard getRandomSakuraCard() {
         SakuraCard sakuraCardMono = client.get()
                 .uri("/api/card/" + getRandomSakuraCardId())
+                .retrieve()
+                .bodyToMono(SakuraCard.class)
+                .block();
+        return sakuraCardMono;
+    }
+
+    @Override
+    public SakuraCard findById(String id) {
+        SakuraCard sakuraCardMono = client.get()
+                .uri("/api/card/" + id)
                 .retrieve()
                 .bodyToMono(SakuraCard.class)
                 .block();
@@ -48,6 +58,13 @@ public class SakuraCardServiceConnected implements SakuraService {
     }
 
     @Override
+    public List<SakuraCard> getAllSakuraCards() {
+        List<SakuraCard> sakuraCardList = new ArrayList<>();
+
+        return null;
+    }
+
+    @Override
     public List<String> findAll() throws URISyntaxException {
         Mono<SakuraCard[]> response = client.get()
                 .uri("/api/card")
@@ -62,6 +79,8 @@ public class SakuraCardServiceConnected implements SakuraService {
                 .map(SakuraCard::getEnglishName)
                 .collect(Collectors.toList());
     }
+
+
 
 
 

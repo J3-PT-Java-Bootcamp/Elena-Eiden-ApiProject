@@ -8,7 +8,8 @@ import java.util.List;
 
 public interface SakuraService {
     List<String> findAll() throws URISyntaxException;
-    SakuraCard findById(Long id);
-
+    SakuraCard getRandomSakuraCard();
     Flux<SakuraCard> getSakuraCards();
+    List<SakuraCard> getAllSakuraCards();
+    SakuraCard findById(String id);
 }
