@@ -17,7 +17,7 @@ public class SakuraCard {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
-    private Long id;
+    private long id;
 
     private int cardNumber;
     private String spanishName;
@@ -25,11 +25,4 @@ public class SakuraCard {
     private String clowCard;
     private String sakuraCard;
 
-    public SakuraCard(int cardNumber, String spanishName, String englishName, String clowCard, String sakuraCard) {
-        this.cardNumber = cardNumber;
-        this.spanishName = spanishName;
-        this.englishName = englishName;
-        this.clowCard = clowCard;
-        this.sakuraCard = sakuraCard;
-    }
 }
