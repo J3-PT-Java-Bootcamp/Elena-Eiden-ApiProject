@@ -12,7 +12,7 @@
 
 ## Routes implemented:
 
-## SakuraCard
+## SakuraCard API
 
 ```
 https://github.com/JessVel/sakura-card-captor-api
