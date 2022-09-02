@@ -18,13 +18,12 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static com.ironhack.groupapiproject.util.Util.getRandomSakuraCardId;
+import static com.ironhack.groupapiproject.util.Util.*;
 
 @Service
 public class SakuraCardServiceConnected implements SakuraService {
     WebClient client = WebClient.create("https://protected-taiga-89091.herokuapp.com");
     ObjectMapper mapper = new ObjectMapper();
-
 
     @Override
     public SakuraCard getRandomSakuraCard() {
@@ -47,6 +46,18 @@ public class SakuraCardServiceConnected implements SakuraService {
     }
 
     @Override
+    public List<SakuraCard> getAllSakuraCards() {
+        List<SakuraCard> sakuraCardList = new ArrayList<>();
+        SakuraCard actualSakuraCard = new SakuraCard();
+        for (String id: getIdsSakuraCard()) {
+            actualSakuraCard = findById(id);
+            sakuraCardList.add(actualSakuraCard);
+        }
+        return sakuraCardList;
+    }
+
+
+    @Override
     public Flux<SakuraCard> getSakuraCards() {
         Flux<SakuraCard> employeeFlux = client.get()
                 .uri("/api/card")
@@ -57,12 +68,7 @@ public class SakuraCardServiceConnected implements SakuraService {
         return employeeFlux;
     }
 
-    @Override
-    public List<SakuraCard> getAllSakuraCards() {
-        List<SakuraCard> sakuraCardList = new ArrayList<>();
 
-        return null;
-    }
 
     @Override
     public List<String> findAll() throws URISyntaxException {

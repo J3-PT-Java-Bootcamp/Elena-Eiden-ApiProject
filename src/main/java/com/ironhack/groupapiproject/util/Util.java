@@ -29,4 +29,8 @@ public class Util {
     int random = (int) (Math.random() * (idList.length - 0) + 0);
     return idList[random];
   }
+
+  public static String[] getIdsSakuraCard(){
+    return idList;
+  }
 }

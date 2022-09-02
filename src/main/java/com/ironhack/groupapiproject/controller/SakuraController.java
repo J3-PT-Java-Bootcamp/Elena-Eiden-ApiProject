@@ -1,9 +1,11 @@
 package com.ironhack.groupapiproject.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.ironhack.groupapiproject.model.SakuraCard;
 import com.ironhack.groupapiproject.service.SakuraService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Flux;
@@ -29,10 +31,15 @@ public class SakuraController {
         return sakuraService.getRandomSakuraCard();
     }
 
-    @GetMapping("/all")
-    public SakuraCard getAllSakuraCards(@PathParam("id") String id){
-        return sakuraService.getRandomSakuraCard();
+    @GetMapping("/card/{id}")
+    public SakuraCard getSakuraCardById(@PathVariable("id") String id){
+        return sakuraService.findById(id);
     }
+
+  @GetMapping("/all")  // no funciona porque da error -> no se puede serializar
+  public List<SakuraCard> getAll() throws URISyntaxException {
+    return sakuraService.getAllSakuraCards();
+  }
 
 
     /**
