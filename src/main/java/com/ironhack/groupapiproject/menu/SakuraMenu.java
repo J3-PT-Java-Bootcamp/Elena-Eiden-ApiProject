@@ -33,7 +33,7 @@ public final class SakuraMenu{
             Command command = Command.fromString(inputCommand);
             switch (command) {
                 case CASE_1 -> this.showAllSakuraCards();
-                case CASE_2 -> System.out.println("Get a Sakura card by id");
+                case CASE_2 -> this.showSakuraCardById();
                 case CASE_3 -> System.out.println("Get a Sakura card by name in english");
                 case CASE_4 -> System.out.println("Get a Sakura card by name in spanish");
                 case CASE_5 -> System.out.println("Get a random Sakura card");
@@ -76,5 +76,14 @@ public final class SakuraMenu{
         for(SakuraCard sakuraCard : sakuraCards){
             System.out.println(sakuraCard);
         }
+    }
+
+    private void showSakuraCardById(){
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Type the Sakura Card ID -> \t");
+        String id = sc.nextLine();
+        System.out.println(" ************ Sakura Card ******************");
+        System.out.println(this.sakuraCardServiceConnected.findById(id));
+        System.out.println("********************************************");
     }
 }
