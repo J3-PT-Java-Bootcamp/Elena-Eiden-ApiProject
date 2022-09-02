@@ -2,7 +2,7 @@ package com.ironhack.groupapiproject.menu;
 
 import com.ironhack.groupapiproject.controller.SakuraController;
 import com.ironhack.groupapiproject.model.SakuraCard;
-import com.ironhack.groupapiproject.service.SakuraCardServiceConnected;
+import com.ironhack.groupapiproject.service.SakuraServiceImpl;
 import org.springframework.stereotype.Component;
 import java.util.Scanner;
 
@@ -13,14 +13,14 @@ public final class SakuraMenu{
     SakuraController sakuraController;
 
     final
-    SakuraCardServiceConnected sakuraCardServiceConnected;
+    SakuraServiceImpl sakuraServiceImpl;
 
 
     private final Scanner scanner = new Scanner(System.in);
 
-    public SakuraMenu(SakuraController sakuraController, SakuraCardServiceConnected sakuraCardServiceConnected) {
+    public SakuraMenu(SakuraController sakuraController, SakuraServiceImpl sakuraServiceImpl) {
         this.sakuraController = sakuraController;
-        this.sakuraCardServiceConnected = sakuraCardServiceConnected;
+        this.sakuraServiceImpl = sakuraServiceImpl;
     }
 
     public void start() {
@@ -75,7 +75,7 @@ public final class SakuraMenu{
     }
 
     private void showAllSakuraCards(){
-        var sakuraCards = this.sakuraCardServiceConnected.getAllSakuraCards();
+        var sakuraCards = this.sakuraServiceImpl.getAllSakuraCards();
         for(SakuraCard sakuraCard : sakuraCards){
             System.out.println(sakuraCard);
         }
@@ -86,13 +86,13 @@ public final class SakuraMenu{
         System.out.print("Type the Sakura Card ID -> \t");
         String id = sc.nextLine();
         System.out.println(" ************ Sakura Card ******************");
-        System.out.println(this.sakuraCardServiceConnected.findById(id));
+        System.out.println(this.sakuraServiceImpl.findById(id));
         System.out.println("********************************************");
     }
 
     private void showRandomSakuraCard() {
         System.out.println("\n************ Random Sakura Card ******************");
-        System.out.println(this.sakuraCardServiceConnected.getRandomSakuraCard());
+        System.out.println(this.sakuraServiceImpl.getRandomSakuraCard());
         System.out.println("***************************************************\n");
     }
 

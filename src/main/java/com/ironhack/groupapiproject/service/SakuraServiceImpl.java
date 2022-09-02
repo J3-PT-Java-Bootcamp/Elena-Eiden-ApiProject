@@ -2,16 +2,12 @@ package com.ironhack.groupapiproject.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ironhack.groupapiproject.model.SakuraCard;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -21,7 +17,7 @@ import java.util.stream.Collectors;
 import static com.ironhack.groupapiproject.util.Util.*;
 
 @Service
-public class SakuraCardServiceConnected implements SakuraService {
+public class SakuraServiceImpl implements SakuraService {
     WebClient client = WebClient.create("https://protected-taiga-89091.herokuapp.com");
     ObjectMapper mapper = new ObjectMapper();
 
