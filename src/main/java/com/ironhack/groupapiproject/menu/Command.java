@@ -7,6 +7,7 @@ public enum Command{
     CASE_3("3"),
     CASE_4("4"),
     CASE_5("5"),
+    CASE_6("6"),
     EXIT("0"),
     INVALID("invalid");
 

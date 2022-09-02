@@ -34,9 +34,10 @@ public final class SakuraMenu{
             switch (command) {
                 case CASE_1 -> this.showAllSakuraCards();
                 case CASE_2 -> this.showSakuraCardById();
-                case CASE_3 -> System.out.println("Get a Sakura card by name in english");
-                case CASE_4 -> System.out.println("Get a Sakura card by name in spanish");
-                case CASE_5 -> System.out.println("Get a random Sakura card");
+                case CASE_3 -> this.showRandomSakuraCard();
+                case CASE_4 -> this.createPlayer();
+                case CASE_5 -> this.showAllPlayers();
+                case CASE_6 -> this.showPlayerById();
                 case EXIT -> exit = true;
                 default -> System.out.println("Kero can not understand this command :( " +
                         "Please try again.");
@@ -46,6 +47,7 @@ public final class SakuraMenu{
         System.out.println("Thanks for visiting me :)");
         System.out.println("See you next time, Cards Collector!");
     }
+
 
     private void printWelcome() {
         System.out.println("======================================================================");
@@ -61,11 +63,12 @@ public final class SakuraMenu{
     private void printCommandRequest() {
         System.out.println(" Please, select a command from the following options:");
         System.out.println(" ");
-        System.out.println("    1. Get all Sakura cards");
-        System.out.println("    2. Get a Sakura card by id");
-        System.out.println("    3. Get a Sakura card by name in english");
-        System.out.println("    4. Get a Sakura card by name in spanish");
-        System.out.println("    5. Get a random Sakura card ");
+        System.out.println("    1. Get all Sakura Cards");
+        System.out.println("    2. Get a Sakura Card by id");
+        System.out.println("    3. Get a random Sakura card");
+        System.out.println("    4. Create Player");
+        System.out.println("    5. Show all Players");
+        System.out.println("    6. Show Player By Id");
         System.out.println("    0. Exit the application");
         System.out.println(" ");
         System.out.print("  Enter your command [0-5]: ");
@@ -86,4 +89,22 @@ public final class SakuraMenu{
         System.out.println(this.sakuraCardServiceConnected.findById(id));
         System.out.println("********************************************");
     }
+
+    private void showRandomSakuraCard() {
+        System.out.println("\n************ Random Sakura Card ******************");
+        System.out.println(this.sakuraCardServiceConnected.getRandomSakuraCard());
+        System.out.println("***************************************************\n");
+    }
+
+    private void createPlayer(){
+        System.out.println("CREANDO USUARIO");
+    }
+
+    private void showAllPlayers(){
+        System.out.println("SHOW ALL PLAYERS");
+    }
+    private void showPlayerById(){
+        System.out.println("SHOW PLAYER BY ID");
+    }
+
 }
