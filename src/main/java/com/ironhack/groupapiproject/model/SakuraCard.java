@@ -1,9 +1,11 @@
 package com.ironhack.groupapiproject.model;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.UUID;
 
 
 @Entity
@@ -11,7 +13,6 @@ import java.util.UUID;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 public class SakuraCard {
     @Id
     private String _id;
