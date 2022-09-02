@@ -1,7 +1,6 @@
 package com.ironhack.groupapiproject;
 
 import com.ironhack.groupapiproject.menu.SakuraMenu;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.CommandLineRunner;
