@@ -15,7 +15,7 @@
 ## SakuraCard
 
 ```
-GET /user/{id}
+https://github.com/JessVel/sakura-card-captor-api
 ```
 
 # User
