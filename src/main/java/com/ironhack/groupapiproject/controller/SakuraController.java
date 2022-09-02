@@ -10,6 +10,7 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import javax.websocket.server.PathParam;
+import java.net.URISyntaxException;
 import java.util.List;
 
 @RestController
@@ -23,17 +24,18 @@ public class SakuraController {
     public String helloSakura(){
         return "Hello Sakura's player";
     }
+
     @GetMapping("/{id}")
     public SakuraCard getById(@PathParam("id") Long id){
         return sakuraService.findById(id);
     }
 
-    @GetMapping("/all")
-    public List<String> getAll(){
+    @GetMapping("/all")  // no funciona porque da error -> no se puede serializar
+    public List<String> getAll() throws URISyntaxException {
         return sakuraService.findAll();
     }
 
-    @GetMapping("/demoflux")
+    @GetMapping("/demoflux") // no funciona devuelve un array de 1 solo elemento y vacío
     public Flux<SakuraCard> getAllSakuraCards(){
         return sakuraService.getSakuraCards();
     }
