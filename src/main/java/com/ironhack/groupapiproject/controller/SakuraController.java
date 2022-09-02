@@ -6,8 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 import javax.websocket.server.PathParam;
+import java.util.List;
 
 @RestController
 @RequestMapping("/sakura")
@@ -24,6 +27,18 @@ public class SakuraController {
     public SakuraCard getById(@PathParam("id") Long id){
         return sakuraService.findById(id);
     }
+
+    @GetMapping("/all")
+    public List<String> getAll(){
+        return sakuraService.findAll();
+    }
+
+    @GetMapping("/demoflux")
+    public Flux<SakuraCard> getAllSakuraCards(){
+        return sakuraService.getSakuraCards();
+    }
+
+
 
 
 }

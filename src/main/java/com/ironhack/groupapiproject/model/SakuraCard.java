@@ -1,11 +1,9 @@
 package com.ironhack.groupapiproject.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
+import java.util.UUID;
 
 
 @Entity
@@ -13,12 +11,14 @@ import javax.persistence.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 public class SakuraCard {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id", nullable = false)
+    //@GeneratedValue(strategy = GenerationType.AUTO)
+    //@Column(name = "id", nullable = false)
     private Long id;
 
+    //private UUID _id;
     private int cardNumber;
     private String spanishName;
     private String englishName;
