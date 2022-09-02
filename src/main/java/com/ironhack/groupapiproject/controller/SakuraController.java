@@ -37,7 +37,7 @@ public class SakuraController {
     }
 
   @GetMapping("/all")  // no funciona porque da error -> no se puede serializar
-  public List<SakuraCard> getAll() throws URISyntaxException {
+  public List<SakuraCard> getAllSakuraCards() throws URISyntaxException {
     return sakuraService.getAllSakuraCards();
   }
 
