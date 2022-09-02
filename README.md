@@ -18,7 +18,7 @@
 https://github.com/JessVel/sakura-card-captor-api
 ```
 
-# User
+# Sakura Card
 | Method | Endpoint | Description                                    | Body                          |
 | ------ |----------|------------------------------------------------| ----------------------------- |
 | GET    | /sakura/{id} | Retrieve the sakura card with the indicated id |                               |
