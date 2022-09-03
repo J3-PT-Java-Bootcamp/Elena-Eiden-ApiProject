@@ -19,8 +19,16 @@ https://github.com/JessVel/sakura-card-captor-api
 ```
 
 # Sakura Card
-| Method | Endpoint | Description                                    | Body                          |
-| ------ |----------|------------------------------------------------| ----------------------------- |
-| GET    | /sakura/{id} | Retrieve the sakura card with the indicated id |                               |
-| GET    | /sakura/all | Retrieve all sakura cards                      |                               |
+| Method | Endpoint       | Description                                         | Body                          |
+| ------ |----------------|-----------------------------------------------------| ----------------------------- |
+| GET    | /greeting      | Show a greeting                                     |                               |
+| GET    | /sakura/{id}   | Retrieve the sakura card with the indicated id      |                               |
+| GET    | /sakura/random | Retrieve the random sakura |                               |
+| GET    | /sakura/all    | Retrieve all sakura cards                           |                               |
 
+# Player
+| Method | Endpoint  | Description                               | Body |
+|--------|-----------|-------------------------------------------|------|
+| GET    | /player/{id} | Retrieve the player with the indicated id |      |
+| GET    | /player/all | Retrieve all players                      |      |
+| POST   | /player/  | Add one player             | YES  |
