@@ -1,7 +1,9 @@
 package com.ironhack.groupapiproject.menu;
 
 import com.ironhack.groupapiproject.controller.SakuraController;
+import com.ironhack.groupapiproject.model.Player;
 import com.ironhack.groupapiproject.model.SakuraCard;
+import com.ironhack.groupapiproject.service.PlayerServiceImpl;
 import com.ironhack.groupapiproject.service.SakuraServiceImpl;
 import org.springframework.stereotype.Component;
 import java.util.Scanner;
@@ -9,18 +11,17 @@ import java.util.Scanner;
 @Component
 public final class SakuraMenu{
 
-    final
-    SakuraController sakuraController;
-
-    final
-    SakuraServiceImpl sakuraServiceImpl;
+    final SakuraController sakuraController;
+    final SakuraServiceImpl sakuraServiceImpl;
+    final PlayerServiceImpl playerService;
 
 
     private final Scanner scanner = new Scanner(System.in);
 
-    public SakuraMenu(SakuraController sakuraController, SakuraServiceImpl sakuraServiceImpl) {
+    public SakuraMenu(SakuraController sakuraController, SakuraServiceImpl sakuraServiceImpl, PlayerServiceImpl playerService) {
         this.sakuraController = sakuraController;
         this.sakuraServiceImpl = sakuraServiceImpl;
+        this.playerService = playerService;
     }
 
     public void start() {
@@ -97,12 +98,23 @@ public final class SakuraMenu{
     }
 
     private void createPlayer(){
-        System.out.println("CREANDO USUARIO");
+        Scanner sc = new Scanner(System.in);
+        System.out.print("\tADD player name: ");
+        String name = sc.nextLine();
+        Player player = new Player(name);
+        playerService.create(player);
+        System.out.println("Player -> " + name + " add!!!");
     }
 
     private void showAllPlayers(){
         System.out.println("SHOW ALL PLAYERS");
+        /**var players = this.playerService.getAllPlayers();
+         for(Player player : players){
+         System.out.println(player);
+         }
+         */
     }
+
     private void showPlayerById(){
         System.out.println("SHOW PLAYER BY ID");
     }
